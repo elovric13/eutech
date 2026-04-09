@@ -2,6 +2,8 @@ import pandas as pd
 import re
 import matplotlib.pyplot as plt
 import seaborn as sns
+import subprocess
+from datetime import datetime, timedelta
 
 SECURITY_EVENT_LABELS = {
     4624: "Successful Logon",
@@ -14,6 +16,17 @@ SECURITY_EVENT_LABELS = {
     4740: "Account Locked Out",
     4771: "Kerberos Pre-Auth Failed",
     }
+
+def export_logs():
+    one_week_ago = (datetime.now() - timedelta(days=7)).strftime("%Y-%m-%d")
+
+    commands = [
+        f'Get-WinEvent -FilterHashtable @{{LogName="Security"; StartTime="{one_week_ago}"}} | Export-Csv security_logs.csv -NoTypeInformation',
+        f'Get-WinEvent -FilterHashtable @{{LogName="System";   StartTime="{one_week_ago}"}} | Export-Csv system_logs.csv   -NoTypeInformation',
+    ]
+    for cmd in commands:
+        subprocess.run(["powershell", "-Command", cmd], check=True)
+    print("[Ok] Logs exported from Windows Event Viewer")
 
 def load_log(filename):
     df = pd.read_csv(filename, dtype=str)
@@ -50,6 +63,7 @@ def chart_event_levels(df):
     plt.ylabel("Count")
     plt.savefig("chart1_event_levels.png")
     #plt.show()
+    plt.close()
 
 # CHART 2: Pie chart — event level distribution
 def chart_level_pie(df):
@@ -57,9 +71,9 @@ def chart_level_pie(df):
     counts.plot(kind="pie", autopct="%1.1f%%")
     plt.title("Event level distribution")
     plt.ylabel("")
-    plt.tight_layout() 
     plt.savefig("chart2_level_pie.png")
     #plt.show()
+    plt.close()
 
 # CHART 3: Time series — events over time
 def chart_events_over_time(df):
@@ -70,6 +84,7 @@ def chart_events_over_time(df):
     plt.ylabel("Count")
     plt.savefig("chart3_events_over_time.png")
     #plt.show()
+    plt.close()
 
 # CHART 4: Time series — login activity
 
@@ -85,6 +100,7 @@ def chart_login_times(df):
     plt.ylabel("Count")
     plt.savefig("chart4_login_times.png")
     #plt.show()
+    plt.close()
 
 # CHART 5: Bar chart — successful vs failed logins
 
@@ -102,6 +118,7 @@ def chart_login_comparison(df):
     plt.ylabel("Count")
     plt.savefig("chart5_login_comparison.png")
     #plt.show()
+    plt.close()
 
 
 def export_html(sys_df, sec_df):
@@ -145,6 +162,8 @@ def export_html(sys_df, sec_df):
         f.write(html)
     print("report.html saved")
 
+
+export_logs()
 
 print("\n" + "*" * 80)
 print(f"\nSystem log information: {'system_logs.csv'}")
