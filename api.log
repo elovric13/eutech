@@ -1,0 +1,38 @@
+[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on https://127.0.0.1:5000
+[33mPress CTRL+C to quit[0m
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 755-330-025
+{"timestamp": "2026-04-30T15:04:41.545188", "ip": "127.0.0.1", "method": "POST", "path": "/login", "status": 400}
+127.0.0.1 - - [30/Apr/2026 17:04:41] "[31m[1mPOST /login HTTP/1.1[0m" 400 -
+{"timestamp": "2026-04-30T15:05:59.689057", "ip": "127.0.0.1", "method": "POST", "path": "/login", "status": 200}
+127.0.0.1 - - [30/Apr/2026 17:05:59] "POST /login HTTP/1.1" 200 -
+{"timestamp": "2026-04-30T15:06:54.532177", "ip": "127.0.0.1", "method": "POST", "path": "/login", "status": 200}
+127.0.0.1 - - [30/Apr/2026 17:06:54] "POST /login HTTP/1.1" 200 -
+{"timestamp": "2026-04-30T15:07:51.686142", "ip": "127.0.0.1", "method": "GET", "path": "/projects", "status": 422}
+127.0.0.1 - - [30/Apr/2026 17:07:51] "[31m[1mGET /projects HTTP/1.1[0m" 422 -
+{"timestamp": "2026-04-30T15:08:10.133716", "ip": "127.0.0.1", "method": "GET", "path": "/projects", "status": 200}
+127.0.0.1 - - [30/Apr/2026 17:08:10] "GET /projects HTTP/1.1" 200 -
+{"timestamp": "2026-04-30T15:10:20.143400", "ip": "127.0.0.1", "method": "POST", "path": "/login", "status": 200}
+127.0.0.1 - - [30/Apr/2026 17:10:20] "POST /login HTTP/1.1" 200 -
+{"timestamp": "2026-04-30T15:11:36.589289", "ip": "127.0.0.1", "method": "GET", "path": "/projects", "status": 200}
+127.0.0.1 - - [30/Apr/2026 17:11:36] "GET /projects HTTP/1.1" 200 -
+{"timestamp": "2026-04-30T15:12:11.833070", "ip": "127.0.0.1", "method": "POST", "path": "/projects", "status": 201}
+127.0.0.1 - - [30/Apr/2026 17:12:11] "[35m[1mPOST /projects HTTP/1.1[0m" 201 -
+{"timestamp": "2026-04-30T15:12:43.341261", "ip": "127.0.0.1", "method": "PUT", "path": "/projects/2", "status": 200}
+127.0.0.1 - - [30/Apr/2026 17:12:43] "PUT /projects/2 HTTP/1.1" 200 -
+{"timestamp": "2026-04-30T15:13:32.983459", "ip": "127.0.0.1", "method": "DELETE", "path": "/projects/1", "status": 200}
+127.0.0.1 - - [30/Apr/2026 17:13:32] "DELETE /projects/1 HTTP/1.1" 200 -
+{"timestamp": "2026-04-30T15:13:59.483485", "ip": "127.0.0.1", "method": "GET", "path": "/projects", "status": 200}
+127.0.0.1 - - [30/Apr/2026 17:13:59] "GET /projects HTTP/1.1" 200 -
+{"timestamp": "2026-04-30T15:14:20.348007", "ip": "127.0.0.1", "method": "GET", "path": "/logs", "status": 200}
+127.0.0.1 - - [30/Apr/2026 17:14:20] "GET /logs HTTP/1.1" 200 -
+{"timestamp": "2026-04-30T15:15:02.784650", "ip": "127.0.0.1", "method": "POST", "path": "/login", "status": 200}
+127.0.0.1 - - [30/Apr/2026 17:15:02] "POST /login HTTP/1.1" 200 -
+{"timestamp": "2026-04-30T15:15:40.247377", "ip": "127.0.0.1", "method": "DELETE", "path": "/projects/2", "status": 422}
+127.0.0.1 - - [30/Apr/2026 17:15:40] "[31m[1mDELETE /projects/2 HTTP/1.1[0m" 422 -
+{"timestamp": "2026-04-30T15:16:07.939182", "ip": "127.0.0.1", "method": "POST", "path": "/login", "status": 200}
+127.0.0.1 - - [30/Apr/2026 17:16:07] "POST /login HTTP/1.1" 200 -
+{"timestamp": "2026-04-30T15:16:55.773413", "ip": "127.0.0.1", "method": "DELETE", "path": "/projects/3", "status": 403}
+127.0.0.1 - - [30/Apr/2026 17:16:55] "[31m[1mDELETE /projects/3 HTTP/1.1[0m" 403 -
